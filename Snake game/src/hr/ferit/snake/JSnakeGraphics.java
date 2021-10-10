@@ -126,7 +126,7 @@ public class JSnakeGraphics extends JComponent{
 		snakeTiles.get(0).setY(snakeTiles.get(0).getY() + adjustmentY);
 	}
 	
-	public void invokeAdjuster() {
+	private void invokeAdjuster() {
 		
 		adjuster.setScore(score);
 	}
