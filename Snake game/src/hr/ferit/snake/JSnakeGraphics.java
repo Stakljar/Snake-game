@@ -28,8 +28,8 @@ public class JSnakeGraphics extends JComponent{
 	private final ArrayList<SnakeTile> snakeTiles = new ArrayList<SnakeTile>();
 	public final int WIDTH = 20;
 	public final int HEIGHT = 20;
-	public int AppleX = 400;
-	public int AppleY = 240;
+	public int appleX = 400;
+	public int appleY = 240;
 	private int score = 0;
 	private final int maxValueX = 46;
 	private final int maxValueY = 30;
@@ -73,13 +73,13 @@ public class JSnakeGraphics extends JComponent{
 
 		super.paintComponent(g);
 		g.setColor(Color.GREEN);
-		g.drawImage(apple, AppleX, AppleY, null);
+		g.drawImage(apple, appleX, appleY, null);
 		g.setColor(Color.RED);
 		g.drawImage(snakeHead, snakeTiles.get(0).getX(), snakeTiles.get(0).getY(), null);
 		for (int i = 1; i < snakeTiles.size(); i++) {
 			g.drawImage(snakeBody, snakeTiles.get(i).getX(), snakeTiles.get(i).getY(), null);
 		}
-		if(snakeTiles.get(0).getX() == AppleX && snakeTiles.get(0).getY() == AppleY) {
+		if(snakeTiles.get(0).getX() == appleX && snakeTiles.get(0).getY() == appleY) {
 			score++;
 			resetApple();
 			snakeTiles.add(new SnakeTile(snakeTiles.get(snakeTiles.size() - 1).getX(), snakeTiles.get(snakeTiles.size() - 1).getY()));
@@ -108,10 +108,10 @@ public class JSnakeGraphics extends JComponent{
 	
 	private void resetApple() {
 
-		AppleX = (minValueAppleX + random.nextInt(maxValueAppleX - minValueAppleX + 1)) * multiplier;
-		AppleY = (minValueAppleY + random.nextInt(maxValueAppleY - minValueAppleY + 1)) * multiplier;
+		appleX = (minValueAppleX + random.nextInt(maxValueAppleX - minValueAppleX + 1)) * multiplier;
+		appleY = (minValueAppleY + random.nextInt(maxValueAppleY - minValueAppleY + 1)) * multiplier;
 		for(int i = 0; i < snakeTiles.size(); i++) {
-			if(snakeTiles.get(i).getX() == AppleX && snakeTiles.get(i).getY() == AppleY)
+			if(snakeTiles.get(i).getX() == appleX && snakeTiles.get(i).getY() == appleY)
 				resetApple();
 		}
 	}
