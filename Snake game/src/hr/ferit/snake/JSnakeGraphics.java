@@ -50,9 +50,9 @@ public class JSnakeGraphics extends JComponent{
 		this.adjuster = adjuster;
 		try 
 		{
-		    apple = ImageIO.read(new File("Apple.jpg"));
-		    snakeHead = ImageIO.read(new File("Snake Head.jpg"));
-		    snakeBody = ImageIO.read(new File("Snake Body.jpg"));
+		    apple = ImageIO.read(new File("images/apple.jpg"));
+		    snakeHead = ImageIO.read(new File("images/snake-head.jpg"));
+		    snakeBody = ImageIO.read(new File("images/snake-body.jpg"));
 		} 
 		catch (IOException e) 
 		{
