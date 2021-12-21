@@ -36,33 +36,33 @@ public class PanelAdjuster {
 	
 	public void adjustPanel(JPanel panel, JButton button, JLabel label) {
 			
-			JPanel topSubPanel = new JPanel(new GridLayout(3, 3, 0, 0));
-			JPanel middleSubPanel = new JPanel(new GridLayout(3, 3, 0, 0));
-			topSubPanel.setBackground(Color.YELLOW);
-			middleSubPanel.setBackground(Color.YELLOW);
-			panel.add(getHelperPanel());
-			panel.add(topSubPanel);
-			
-			topSubPanel.add(getHelperPanel());
-			topSubPanel.add(label);
-			topSubPanel.add(scoreLabel); //it transfers to the last panel adjusted
-			
-			panel.add(getHelperPanel());
-			panel.add(getHelperPanel());
-			panel.add(middleSubPanel);
-			
-			middleSubPanel.add(getHelperPanel());
-			middleSubPanel.add(button);
-			middleSubPanel.add(getHelperPanel());
-	
-			panel.add(getHelperPanel());
-			panel.add(getHelperPanel());
-			panel.add(getHelperPanel());
-			panel.add(getHelperPanel());
+		JPanel topSubPanel = new JPanel(new GridLayout(3, 3, 0, 0));
+		JPanel middleSubPanel = new JPanel(new GridLayout(3, 3, 0, 0));
+		topSubPanel.setBackground(Color.YELLOW);
+		middleSubPanel.setBackground(Color.YELLOW);
+		panel.add(getHelperPanel());
+		panel.add(topSubPanel);
 
-		    adjuster.adjustButton(button);
-			adjuster.adjustLabel(label);
-			adjuster.adjustLabel(scoreLabel);
+		topSubPanel.add(getHelperPanel());
+		topSubPanel.add(label);
+		topSubPanel.add(scoreLabel); //it transfers to the last panel adjusted
+
+		panel.add(getHelperPanel());
+		panel.add(getHelperPanel());
+		panel.add(middleSubPanel);
+
+		middleSubPanel.add(getHelperPanel());
+		middleSubPanel.add(button);
+		middleSubPanel.add(getHelperPanel());
+
+		panel.add(getHelperPanel());
+		panel.add(getHelperPanel());
+		panel.add(getHelperPanel());
+		panel.add(getHelperPanel());
+
+	    	adjuster.adjustButton(button);
+		adjuster.adjustLabel(label);
+		adjuster.adjustLabel(scoreLabel);
 	}
 	
 	private JPanel getHelperPanel() {
