@@ -1,3 +1,3 @@
-module hr.ferit.snake {
+module snake {
 	requires java.desktop;
 }
