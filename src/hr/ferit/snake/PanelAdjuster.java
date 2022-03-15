@@ -14,9 +14,9 @@ public class PanelAdjuster {
 	private int score = 0;
 	private JLabel scoreLabel = new JLabel("Final score: " + score);
 	
-	public class ComponentAdjuster{
+	public class ComponentAdjuster {
 		
-		private ComponentAdjuster(){}
+		private ComponentAdjuster() {}
 		
 		private void adjustLabel(JLabel label) {
 			
