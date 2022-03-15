@@ -41,21 +41,19 @@ public class JSnakeGraphics extends JComponent{
 	private final int maxValueAppleY = 37;
 	private final int multiplier = 20;
 	
-	public JSnakeGraphics(CardLayout layout, Container container, JFrame frame, PanelAdjuster adjuster){
+	public JSnakeGraphics(CardLayout layout, Container container, JFrame frame, PanelAdjuster adjuster) {
 		
 		snakeTiles.add(new SnakeTile(460, 360));
 		this.layout = layout;
 		this.container = container;
 		this.frame = frame;
 		this.adjuster = adjuster;
-		try 
-		{
+		try {
 		    apple = ImageIO.read(new File("images/apple.jpg"));
 		    snakeHead = ImageIO.read(new File("images/snake-head.jpg"));
 		    snakeBody = ImageIO.read(new File("images/snake-body.jpg"));
 		} 
-		catch (IOException e) 
-		{
+		catch (IOException e) {
 			 frame.dispose();
 			 JOptionPane.showMessageDialog(frame, "Error reading image.", "ERROR",
 		     JOptionPane.ERROR_MESSAGE);
