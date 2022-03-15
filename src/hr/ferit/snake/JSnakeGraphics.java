@@ -76,9 +76,11 @@ public class JSnakeGraphics extends JComponent{
 		g.drawImage(apple, appleX, appleY, null);
 		g.setColor(Color.RED);
 		g.drawImage(snakeHead, snakeTiles.get(0).getX(), snakeTiles.get(0).getY(), null);
+		
 		for (int i = 1; i < snakeTiles.size(); i++) {
 			g.drawImage(snakeBody, snakeTiles.get(i).getX(), snakeTiles.get(i).getY(), null);
 		}
+		
 		if(snakeTiles.get(0).getX() == appleX && snakeTiles.get(0).getY() == appleY) {
 			score++;
 			resetApple();
@@ -90,6 +92,7 @@ public class JSnakeGraphics extends JComponent{
 				terminate(layout, container);
 			}
 		}
+		
 		if(snakeTiles.get(0).getX() < 0 || snakeTiles.get(0).getX() >= frame.getWidth() - 16 || snakeTiles.get(0).getY() < -1 || snakeTiles.get(0).getY() >= frame.getHeight() - 39) {
 			terminate(layout, container);
 		}
@@ -118,10 +121,11 @@ public class JSnakeGraphics extends JComponent{
 	
 	public void adjustFirstElement(int adjustmentX, int adjustmentY) {
 		
-	    for (int i = snakeTiles.size() - 1; i > 0; i--) {
-				snakeTiles.get(i).setX(snakeTiles.get(i - 1).getX());
-				snakeTiles.get(i).setY(snakeTiles.get(i - 1).getY());
+	    	for (int i = snakeTiles.size() - 1; i > 0; i--) {
+			snakeTiles.get(i).setX(snakeTiles.get(i - 1).getX());
+			snakeTiles.get(i).setY(snakeTiles.get(i - 1).getY());
 		}
+		
 		snakeTiles.get(0).setX(snakeTiles.get(0).getX() + adjustmentX);
 		snakeTiles.get(0).setY(snakeTiles.get(0).getY() + adjustmentY);
 	}
