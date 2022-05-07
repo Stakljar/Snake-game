@@ -1,0 +1,2 @@
+module hr.ferit.snake {
+}
