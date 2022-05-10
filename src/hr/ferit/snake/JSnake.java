@@ -140,6 +140,7 @@ public class JSnake extends JFrame {
 	
 	private void addNextPanelListener(JButton button) {
 		
+		button.setMnemonic(KeyEvent.VK_ENTER);
 		button.addActionListener(new ActionListener() {
 
 			@Override
