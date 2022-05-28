@@ -1,18 +1,19 @@
 package hr.ferit.snake;
 
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingWorker;
 
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.CardLayout;
 import java.awt.GridLayout;
-import java.awt.event.KeyListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 @SuppressWarnings("serial")
@@ -32,8 +33,15 @@ public class JSnake extends JFrame {
 
 	public JSnake() {
 		
-		createFrame();
-		performAutoMovement();
+		EventQueue.invokeLater(new Runnable() {
+			
+			@Override
+			public void run() {
+				
+				createFrame();
+				performAutoMovement();
+			}
+		});
 	}
 	
 	private void createFrame() {
@@ -62,10 +70,7 @@ public class JSnake extends JFrame {
 		add(gamePanel);
 		add(endPanel);
 		gamePanel.setBackground(Color.YELLOW);
-	    gamePanel.addKeyListener(new KeyListener() {
-
-			@Override
-			public void keyTyped(KeyEvent e) {}
+	    gamePanel.addKeyListener(new KeyAdapter() {
 
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -88,18 +93,16 @@ public class JSnake extends JFrame {
 				}
 			
 			}
-
-			@Override
-			public void keyReleased(KeyEvent e) {}
 		
 		});	
 	}
 
 	private void performAutoMovement() {
-		
-		Thread thread = new Thread() {
-			
-			public void run() {
+				
+		new SwingWorker<Object, Object>() {
+
+			@Override
+			protected Object doInBackground() throws Exception {
 				
 				while(true) {
 					switch(direction) {
@@ -118,7 +121,14 @@ public class JSnake extends JFrame {
 						default:
 							break;
 						}
-					gamePanel.repaint();
+					EventQueue.invokeLater(new Runnable() {
+						
+						@Override
+						public void run() {
+							
+							gamePanel.repaint();
+						}
+					});
 					try {
 						
 						Thread.sleep(40);
@@ -133,9 +143,8 @@ public class JSnake extends JFrame {
 					}
 				}
 			}
-		};
-		
-		thread.start();
+			
+		}.execute();	
 	}
 	
 	private void addNextPanelListener(JButton button) {
