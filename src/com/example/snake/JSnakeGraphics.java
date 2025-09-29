@@ -83,16 +83,19 @@ public class JSnakeGraphics extends JComponent{
 			score++;
 			resetApple();
 			snakeTiles.add(new SnakeTile(snakeTiles.get(snakeTiles.size() - 1).getX(), snakeTiles.get(snakeTiles.size() - 1).getY()));
+			return;
+		}
+
+		if(snakeTiles.get(0).getX() < 0 || snakeTiles.get(0).getX() >= frame.getWidth() - 16 || snakeTiles.get(0).getY() < -1 || snakeTiles.get(0).getY() >= frame.getHeight() - 39) {
+			terminate(layout, container);
+			return;
 		}
 		
 		for(int i = 3; i < snakeTiles.size(); i++) {
 			if(snakeTiles.get(0).getX() == snakeTiles.get(i).getX() && snakeTiles.get(0).getY() == snakeTiles.get(i).getY()) {
 				terminate(layout, container);
+				return;
 			}
-		}
-		
-		if(snakeTiles.get(0).getX() < 0 || snakeTiles.get(0).getX() >= frame.getWidth() - 16 || snakeTiles.get(0).getY() < -1 || snakeTiles.get(0).getY() >= frame.getHeight() - 39) {
-			terminate(layout, container);
 		}
 	}
 	
@@ -112,8 +115,10 @@ public class JSnakeGraphics extends JComponent{
 		appleX = (minValueAppleX + random.nextInt(maxValueAppleX - minValueAppleX + 1)) * multiplier;
 		appleY = (minValueAppleY + random.nextInt(maxValueAppleY - minValueAppleY + 1)) * multiplier;
 		for(int i = 0; i < snakeTiles.size(); i++) {
-			if(snakeTiles.get(i).getX() == appleX && snakeTiles.get(i).getY() == appleY)
+			if(snakeTiles.get(i).getX() == appleX && snakeTiles.get(i).getY() == appleY) {
 				resetApple();
+				return;
+			}
 		}
 	}
 	
